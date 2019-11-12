@@ -1,14 +1,12 @@
-<html>
-    <head>
+{% extends 'base.html' %}
+{% block content %}
 
-    </head>
-    <body>
-          {% for in tasks %}
+          {% for task in tasks %}
                {{task.task_name}}
-               {{task.catagory.name}}
+               {{task.catogory_name}}
                {{task.task_description}}
                {{task.is_urgent}}
                {{task.due_date}}
           {% endfor %}
-    </body>
-</html>
+
+{% endblock %}          
