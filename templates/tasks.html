@@ -5,13 +5,13 @@
 <ul class="collapsible" data-collapsible="accordian">
     {% for task in tasks %}
     <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>
-          {{task.task_name}} - {{task.due_date}}</div>
+      <div class="collapsible-header"><i class="material-icons">play_for_work</i>
+          <strong>{{task.task_name}}</strong> - <em>{{task.due_date}}</em></div>
       <div class="collapsible-body"><span>{{task.task_description}}</span></div>
     </li>
     
 {% endfor %}
 
 </ul>
-        
+
 {% endblock %}          
