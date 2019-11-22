@@ -5,8 +5,17 @@
 <ul class="collapsible" data-collapsible="accordian">
     {% for task in tasks %}
     <li>
-      <div class="collapsible-header"><i class="material-icons">play_for_work</i>
-          <strong>{{task.task_name}}</strong> - <em>{{task.due_date}}</em></div>
+      <div class="collapsible-header">
+        <div class="col s3">
+           <i class="material-icons">play_for_work</i>
+           <a class="waves-effect waves-light btn btn_small green"><i class="material-icons right ">done</i>Done</a>
+           <a href="{{url_for('edit_task', task_id=task._id)}}" class="waves-effect waves-light btn btn_small red"><i class="material-icons right ">edit</i>Edit</a>
+
+        </div>     
+        <div class="task_header col s9">
+          <strong>{{task.task_name}}</strong> - <em>{{task.due_date}}</em>
+        </div>
+        </div>
       <div class="collapsible-body"><span>{{task.task_description}}</span></div>
     </li>
     
