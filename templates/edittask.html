@@ -3,9 +3,8 @@
   <div class="row">
     <form action="{{ url_for('insert_task') }}" method="POST" class="col s12">
        <div class="row">
-          <div class="row">
              <div class="input-field col s12">
-               <i class="material-icons prefix">arrow_downward</i>
+               <i class="material-icons prefix">poll</i>
                 <select id="catagory" name="catagory_name">
                   <option value="" disabled selected>Choose A Catagory</option>
                   {% for cat in catagories %}
@@ -19,21 +18,22 @@
                 <label>Task Catagory</label>
           </div>
           </div>
+          </div>
   
-    
+    <div class="row">
         <div class="input-field col s12">
             <i class="material-icons prefix">assignment</i>
             <input id="task_name" name="task_name" type="text" class="validate" value="{{task.task_name}}">
             <label for="icon_prefix">Task Name</label>
           </div>
-        </div>
-      <div class="row">
+    </div>
+    <div class="row">
         <div class="input-field col s12">
             <i class="material-icons prefix">subject</i>
             <textarea name="task_description" id="task_description" class="materialize-textarea">{{task.task_description}}"</textarea>
             <label for="icon_telephone">Task Description</label>
           </div>
-        </div>
+    </div>
       <div class="row">
         <div class="input-field col s12" id='matfix'>
             <i class="material-icons prefix">today</i>
