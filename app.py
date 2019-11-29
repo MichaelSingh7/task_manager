@@ -40,16 +40,22 @@ def edit_task(task_id):
 
 
 @app.route('/update_task/<task_id>', methods=["POST"])
-def update_task(task_id_):
+def update_task(task_id):
     tasks = mongo.db.tasks
-    tasks.update({'_id': ObjectId(task_id_)},
+    tasks.update({'_id': ObjectId(task_id)},
                  {
-                   'task_name': request.form.get['task_name'],
-                 'catagory_name': request.form.get['catagory_name'],
-                 'task_description': request.form.get['task_description'],
-                   'due date': request.form.get['due_date'],
-                   'is_urgent': request.form.get['is_urgent']
+                   'task_name': request.form.get('task_name'),
+                 'catagory_name': request.form.get('catagory_name'),
+                 'task_description': request.form.get('task_description'),
+                   'due date': request.form.get('due_date'),
+                   'is_urgent': request.form.get('is_urgent')
                  })
+    return redirect(url_for('get_tasks'))
+
+
+@app.route('/delete_task/<task_id>')
+def delete_task(task_id):
+    mongo.db.tasks.remove({'_id': ObjectId(task_id)})
     return redirect(url_for('get_tasks'))
 
 
