@@ -59,6 +59,26 @@ def delete_task(task_id):
     return redirect(url_for('get_tasks'))
 
 
+@app.route('/get_catagories')
+def get_catagories():
+    return render_template('catagories.html',
+                           catagories=mongo.db.catagories.find())
+
+
+@app.route('/delete_catagory/<catagory_id>')
+def delete_catagory(catagory_id):
+    mongo.db.catagories.remove({'_id': ObjectId(catagory_id)})
+    return redirect(url_for('get_catagories'))
+
+
+@app.route('/update_catagory/<catagory_id>', methods=['POST'])
+def update_catagory(catagory_id):
+    mongo.db.catagories.update(
+        {'_id': ObjectId(catagory_id)},
+        {'catagory_name': request.form.get['catagory_name']})
+    return redirect(url_for('get_catagories'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

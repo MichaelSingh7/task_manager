@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class= "row">
+
+<h3>Catagories</h3>
+
+<ul class="collapsible" data-collapsible="accordian">
+    {% for catagory in catagories %}
+    <li>
+      <div class="collapsible-header">
+        <a href="" class="waves-effect waves-light btn btn_small green"><i class="material-icons right ">done</i>Del</a>
+           <a href="{{url_for('edit_catagory', catagory_id =catagory._id)}}" class="waves-effect waves-light btn btn_small red"><i class="material-icons right ">edit</i>Edit</a>
+        <div class="task_header">
+          <strong>{{catagory.catagory_name}}</strong>
+        </div>
+      </div>
+    </li>
+    
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endblock %}          

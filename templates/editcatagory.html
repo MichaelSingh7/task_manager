@@ -1,0 +1,23 @@
+{% extends 'base.html'%} {% block content %}
+<h3>Edit Catagory</h3>
+  <div class="row">
+    <form action="{{ url_for('insert_task') }}" method="POST" class="col s12">
+       
+       <div class="row">
+             <div class="input-field col s12">
+               <i class="material-icons prefix">poll</i>
+               <input id="catagory_name" name="catagory_name" type="text" class="validate" value="{{catagory.catagory_name}}">
+               <label for="icon_prefix">Catagory Name</label>
+             </div>
+          </div>
+          
+        <div class="row">
+         <button class="btn waves-effect waves-light" type="submit" name="action">Edit Catagory
+         <i class="material-icons right">thumb_up</i>
+         </button> 
+      </div>
+
+    </form>
+  </div>
+  
+  {% endblock  %}
