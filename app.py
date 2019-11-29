@@ -79,6 +79,19 @@ def update_catagory(catagory_id):
     return redirect(url_for('get_catagories'))
 
 
+@app.route('/insert_catagory', methods=['POST'])
+def insert_catagory():
+    catagories = mongo.db.catagories
+    catagory_doc = {'catagory_name': request.form.get['catagory_name']}
+    catagories.insert_one(catagory_doc)
+    return redirect(url_for('get_catagories'))
+
+
+@app.route('/add_catagory')
+def add_catagory():
+    return render_template('addcatagory.html')
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
