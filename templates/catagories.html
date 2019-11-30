@@ -6,13 +6,15 @@
 
 <ul class="collapsible" data-collapsible="accordian">
     {% for catagory in catagories %}
+    <li>
       <div class="collapsible-header">
-        <a href="{{url_for('delete_catagory', catagory_id =catagory._id)}}" class="waves-effect waves-light btn btn_small green"><i class="material-icons right ">done</i>Del</a>
-           <a href="{{url_for('edit_catagory', catagory_id =catagory._id)}}" class="waves-effect waves-light btn btn_small red"><i class="material-icons right ">edit</i>Edit</a>
+        <a href="{{url_for('delete_catagory', catagory_id =catagory._id)}}" class="waves-effect waves-light btn btn_small green"><i class="material-icons right "></i>Del</a>
+           <a href="{{url_for('edit_catagory', catagory_id =catagory._id)}}" class="waves-effect waves-light btn btn_small red"><i class="material-icons right "></i>Edit</a>
         <div class="task_header">
           <strong>{{catagory.catagory_name}}</strong>
         </div>
       </div>
+    </li>  
     
     
 {% endfor %}
@@ -22,9 +24,10 @@
 </div>
 
    <div class="row">
-         <a href="{{url_for('add_catagory')}}" button class="btn waves-effect waves-light">
+         <a href="{{url_for('add_catagory')}}"  class="btn waves-effect waves-light">
          <i class="material-icons right">thumb_up</i>Add Catagory</a>
-         </button>
+        
     </div>     
+    
 
 {% endblock %}          
