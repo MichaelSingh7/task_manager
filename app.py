@@ -34,9 +34,9 @@ def insert_task():
 @app.route('/edit_task/<task_id>')
 def edit_task(task_id):
     the_task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
-    all_categories = mongo.db.catagories.find()
+    all_catagories = mongo.db.catagories.find()
     return render_template('edittask.html', task=the_task,
-                           catagories=all_categories)
+                           catagories=all_catagories)
 
 
 @app.route('/update_task/<task_id>', methods=["POST"])
@@ -80,9 +80,9 @@ def update_catagory(catagory_id):
 
 
 @app.route('/insert_catagory', methods=['POST'])
-def insert_category():
-    catagory_doc = {'catagory_name': request.form.get('catagory_name')}
-    mongo.db.catagories.insert_one(catagory_doc)
+def insert_catagory():
+    catagory_name = {'catagory_name': request.form.get('catagory_name')}
+    mongo.db.catagories.insert_one(catagory_name)
     return redirect(url_for('get_catagories'))
 
 
